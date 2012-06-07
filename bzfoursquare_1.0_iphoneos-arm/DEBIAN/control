@@ -1,0 +1,9 @@
+Package: bzfoursquare
+Name: BZFoursquare
+Version: 1.0
+Depends: org.h2co3.carbonatejson
+Architecture: iphoneos-arm
+Depiction: http://github.com/H2CO3/foursquare-ios-api
+Description: Opensource, easy-to-use Objective-C client library for Version 2 of the Foursquare API
+Author: Ba-Z Corp.
+Maintainer: H2CO3

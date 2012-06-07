@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2011 Ba-Z Communication Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -174,6 +174,7 @@ static NSURL *_baseURL = nil;
 {
 	NSString *responseString = [[NSString alloc] initWithData:responseData_ encoding:NSUTF8StringEncoding];
 	NSDictionary *response = [responseString parseJson];
+	[responseString release];
 	NSError *error = nil;
 
 	if (response != nil)
@@ -211,7 +212,7 @@ static NSURL *_baseURL = nil;
 {
 	if ([delegate_ respondsToSelector:@selector(request:didFailWithError:)])
 	{
-		[delegate_ request:self didFailWithError:error];
+		[self.delegate request:self didFailWithError:error];
 	}
 
 	self.connection = nil;
