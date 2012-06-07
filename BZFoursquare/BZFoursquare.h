@@ -5,10 +5,10 @@
  * modification, are permitted provided that the following conditions are met:
  *
  * 1. Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
+ *	this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
+ *	this list of conditions and the following disclaimer in the documentation
+ *	and/or other materials provided with the distribution.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,20 +28,21 @@
 
 @protocol BZFoursquareSessionDelegate;
 
-@interface BZFoursquare : NSObject  {
-    NSString    *clientID_;
-    NSString    *callbackURL_;
-    NSString    *version_;
-    NSString    *locale_;
-    id<BZFoursquareSessionDelegate> sessionDelegate_;
-    NSString    *accessToken_;
+@interface BZFoursquare: NSObject  {
+	NSString	*clientID_;
+	NSString	*callbackURL_;
+	NSString	*version_;
+	NSString	*locale_;
+	id<BZFoursquareSessionDelegate> sessionDelegate_;
+	NSString	*accessToken_;
 }
-@property(nonatomic,copy,readonly) NSString *clientID;
-@property(nonatomic,copy,readonly) NSString *callbackURL;
-@property(nonatomic,copy) NSString *version; // YYYYMMDD
-@property(nonatomic,copy) NSString *locale;  // en (default), fr, de, it, etc.
-@property(nonatomic,assign) id<BZFoursquareSessionDelegate> sessionDelegate;
-@property(nonatomic,copy) NSString *accessToken;
+
+@property(nonatomic, retain) NSString *clientID;
+@property(nonatomic, retain) NSString *callbackURL;
+@property(nonatomic, retain) NSString *version; // YYYYMMDD
+@property(nonatomic, retain) NSString *locale;  // en (default), fr, de, it, etc.
+@property(nonatomic, assign) id <BZFoursquareSessionDelegate> sessionDelegate;
+@property(nonatomic, retain) NSString *accessToken;
 
 - (id)initWithClientID:(NSString *)clientID callbackURL:(NSString *)callbackURL;
 
@@ -59,3 +60,4 @@
 - (void)foursquareDidAuthorize:(BZFoursquare *)foursquare;
 - (void)foursquareDidNotAuthorize:(BZFoursquare *)foursquare error:(NSDictionary *)errorInfo;
 @end
+

@@ -5,10 +5,10 @@
  * modification, are permitted provided that the following conditions are met:
  *
  * 1. Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
+ *	this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
+ *	this list of conditions and the following disclaimer in the documentation
+ *	and/or other materials provided with the distribution.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,29 +27,31 @@
 
 @protocol BZFoursquareRequestDelegate;
 
-@interface BZFoursquareRequest : NSObject {
-    NSString            *path_;
-    NSString            *HTTPMethod_;
-    NSDictionary        *parameters_;
-    id<BZFoursquareRequestDelegate> delegate_;
-    NSURLConnection     *connection_;
-    NSMutableData       *responseData_;
-    NSDictionary        *meta_;
-    NSArray             *notifications_;
-    NSDictionary        *response_;
+FOUNDATION_EXPORT NSString *const BZFoursquareErrorDomain;
+
+@interface BZFoursquareRequest: NSObject {
+	NSString *path_;
+	NSString *HTTPMethod_;
+	NSDictionary *parameters_;
+	id <BZFoursquareRequestDelegate> delegate_;
+	NSURLConnection *connection_;
+	NSMutableData *responseData_;
+	NSDictionary *meta_;
+	NSArray *notifications_;
+	NSDictionary *response_;
 }
-@property(nonatomic,copy,readonly) NSString *path;
-@property(nonatomic,copy,readonly) NSString *HTTPMethod;
-@property(nonatomic,copy,readonly) NSDictionary *parameters;
-@property(nonatomic,assign) id<BZFoursquareRequestDelegate> delegate;
-// responses
-@property(nonatomic,copy,readonly) NSDictionary *meta;
-@property(nonatomic,copy,readonly) NSArray *notifications;
-@property(nonatomic,copy,readonly) NSDictionary *response;
+
+@property(nonatomic, retain) NSString *path;
+@property(nonatomic, retain) NSString *HTTPMethod;
+@property(nonatomic, retain) NSDictionary *parameters;
+@property(nonatomic, assign) id <BZFoursquareRequestDelegate> delegate;
+@property(nonatomic, retain) NSDictionary *meta;
+@property(nonatomic, retain) NSArray *notifications;
+@property(nonatomic, retain) NSDictionary *response;
 
 + (NSURL *)baseURL;
 
-- (id)initWithPath:(NSString *)path HTTPMethod:(NSString *)HTTPMethod parameters:(NSDictionary *)parameters delegate:(id<BZFoursquareRequestDelegate>)delegate;
+- (id)initWithPath:(NSString *)path HTTPMethod:(NSString *)HTTPMethod parameters:(NSDictionary *)parameters delegate:(id <BZFoursquareRequestDelegate>)delegate;
 
 - (void)start;
 - (void)cancel;
@@ -63,4 +65,3 @@
 - (void)request:(BZFoursquareRequest *)request didFailWithError:(NSError *)error;
 @end
 
-FOUNDATION_EXPORT NSString * const BZFoursquareErrorDomain;
